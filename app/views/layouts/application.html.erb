@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hindsight</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <div id="topbar">
+    <%= link_to "Login", login_path, :id => "login" unless current_user %>
+    <%= link_to "Logout", signout_path,	 :id => "logout" if current_user %>
+   <!-- <p id="title">Hindsight.Me</p>-->
+       <p class="notice" style="position:absolute;"><%= notice %></p>
+       <p class="alert" style="position:absolute;"><%= alert %></p>
+  </div>
+
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

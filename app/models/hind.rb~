@@ -1,0 +1,3 @@
+class Hind < ActiveRecord::Base
+  belongs_to :posts
+end

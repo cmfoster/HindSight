@@ -1,0 +1,14 @@
+Hindsight::Application.routes.draw do
+  devise_for :users do
+    match '/login' => 'devise/sessions#new'
+    match '/signout' => 'devise/sessions#destroy'
+
+  end
+
+  root :to => 'home#index'
+  
+  resources :users
+  resources :posts
+  resources :hinds
+  
+end

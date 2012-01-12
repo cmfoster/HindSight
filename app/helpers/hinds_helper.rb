@@ -1,0 +1,2 @@
+module HindsHelper
+end

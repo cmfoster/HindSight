@@ -1,0 +1,48 @@
+<div id="container">
+  <div id="eight"><h4 style="font-size:2.5em;">HindSight.Me</h2></div>	
+<!--<% if current_user %>
+  <p><%= form_for Post.new, :remote => true do |f| %></p>
+      <%= f.text_field :story %>
+      <%= f.submit %>
+     <%end%>
+<%end%>-->
+  <div id="postlist" > 
+    
+    <% @posts.each do |s| %>
+      <div id="post">
+	<p id="title">Title: <%= s.title.titleize if s.title%></p>
+	<p id="post"><%= s.story %></p><br />
+      
+	<div id="hinds" >
+	    <p id="hinds">Subjects:
+	    <% s.hinds.each do |h|%>
+	      <%= h.subject + " " %>
+	    <%end%>
+	    </p>
+	</div>
+	<p id="author">By: <%= s.user.name %></p>
+	
+	  
+      </div>
+    <%end%>
+  
+  </div>
+
+
+
+</div>
+<script type="text/javascript">
+	
+	$(function() {
+		
+		rainbows.init({
+			selector: '#eight h4',
+			shadow: false,
+			from: '#cf6200',
+			to: '#ff9a00'
+		});
+
+	});
+
+
+</script>
