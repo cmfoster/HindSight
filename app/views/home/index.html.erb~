@@ -1,11 +1,34 @@
 <div id="container">
-  <div id="eight"><h4 style="font-size:2.5em;">HindSight.Me</h2></div>	
-<!--<% if current_user %>
+
+<% if current_user %>
   <p><%= form_for Post.new, :remote => true do |f| %></p>
       <%= f.text_field :story %>
       <%= f.submit %>
      <%end%>
-<%end%>-->
+<%end%>
+
+  <div id="logincontainer">
+	<%= form_for "user", :url => user_session_path do |f| %>
+	  <div class="txt-fld">
+	    <%= f.label :email %>
+	    <%= f.text_field :email %>
+	  <div style="clear:both"></div>
+	</div>
+	  <div class="txt-fld">
+	    <%= f.label :password %>
+	    <%= f.password_field :password %>
+	  <div style="clear:both"></div>
+	  </div>
+	  <div class="btn-fld">
+	    <%= f.label :remember_me %>
+	    <%= f.check_box :remember_me %>
+	    <%= f.submit "Login" %>
+	    <%= link_to "Recover my password", new_user_password_path, :id => "recover" %>  
+	  <div style="clear:both"></div>
+	  </div>
+	<% end %>
+      </div>
+
   <div id="postlist" > 
     
     <% @posts.each do |s| %>
@@ -31,18 +54,3 @@
 
 
 </div>
-<script type="text/javascript">
-	
-	$(function() {
-		
-		rainbows.init({
-			selector: '#eight h4',
-			shadow: false,
-			from: '#cf6200',
-			to: '#ff9a00'
-		});
-
-	});
-
-
-</script>

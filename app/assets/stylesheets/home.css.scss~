@@ -20,7 +20,10 @@ h1, h2, h3 {
 h1 {
     font-size: 2.9em;
 }
-
+h2 {
+    color: #EF832D;
+    font-size: 2.5em;
+}
 ul, ol {
     margin: 10px 20px;
     padding: 0 20px;
@@ -57,20 +60,41 @@ a:hover {
     height: 0;
     overflow: hidden;
 }
-#logo {
-    left: 10%;
-    position: relative;
-    top: 0;
+a#recover {
+  font-size: 10px;
+  position:relative;
+  margin-top: -20px;
+  float: left;
+  clear: right;
+  
 }
-#boxed {
-    border: 1px solid;
-    height: 10cm;
-    left: 15%;
-    padding: 10px;
-    position: relative;
-    top: 0;
-    width: 20cm;
+
+
+.nosel {-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-o-user-select: none;user-select: none;}
+a {color: #627fa7;text-decoration: none;}
+a:hover {text-decoration: underline;}
+input[type=text], select, .active-result {border: none;border-radius: 5px;padding: 10px;font-family: Century Gothic, sans-serif;font-size: 16px;outline: none; color:black; }
+input[type=password] {border: none;border-radius: 5px;padding: 10px;font-family: Century Gothic, sans-serif;font-size: 16px;outline: none;}
+label {font-family: Century Gothic, sans-serif;font-size: 16px;font-weight: bold;}
+.txt-fld {margin: 0 auto;padding: 10px;width: 500px;text-align: left;}
+.txt-fld label {text-align: left;}
+.txt-fld input, .txt-fld select {float: right;}
+.txt-fld input[type=submit] {float: right;}
+.txt-fld input[type=file] {color: #FFF;}
+.txt-fld textarea {
+    float: right;
+    height: 100px;
+    width: 350px;
 }
+.txt-fld .chzn-container {
+    float: right;
+}
+.txt-fld select {height: 40px;}
+.btn-fld {border-top: 1px dotted #FFF;border-bottom: 1px dotted #FFF;margin: 0 auto;padding: 10px;width: 550px;text-align: left;}
+.btn-fld input[type=submit] {float: right;font-size: 16px;}
+input[type=submit] {background: #b7db79;border: none;border-radius: 5px;color: #FFF;cursor: pointer;font-family: Arial, Helvetica, sans-serif;font-size: 16px;font-weight: bold;padding: 10px;text-shadow: 1px 1px 1px #333;}
+input[type=submit]:hover {}
+input[type=submit]:active {}
 a.button {border: 10px solid #444;border-radius: 10px;display: inline-block;height: 50px;margin: 10px 20px;padding: 20px;text-shadow: 0 2px 2px #630000;}
 a.h-button {
     color: #FFF;
@@ -130,6 +154,23 @@ p#title {
     padding-left: 0px;
     width: 90%;
 }
+div#logincontainer {
+  float: right;
+  clear: left;
+  height: 160px;
+  width: 200px;
+  background-color: #FFF;
+  border-radius: 15px 0px 0 15px;
+  margin-top: 1cm;
+  text-align: left;
+}
+p#logincontainer {
+  font-weight:bold; 
+  text-align:center; 
+  color:#6B6DC1; 
+  font-size: 10px;
+  margin: 0 auto;
+}
 #container {
     background-color: #6EB3EA;
 //     border-bottom: 1px solid black;
@@ -148,7 +189,7 @@ div#postlist {
 //     border: 1px solid black;
     background-color: #FFF;
     height: auto;
-    margin: 0px 0px 15px;
+    margin: 2cm 0px 15px;
     overflow: hidden;
     padding: 0px 5px 10px;
     text-align: center;

@@ -5,6 +5,8 @@ class HindsController < ApplicationController
   end
   
   def create
+    @hind = Hind.create(params[:hind])
+    @hind.post_id = params[:id]
   end
   
   def destroy

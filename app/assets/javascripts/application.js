@@ -7,5 +7,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require rainbows.js
-//= require jquery-1.3.2.min.js
