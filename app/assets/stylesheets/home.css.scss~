@@ -1,9 +1,17 @@
+// Place all the styles related to the hinds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  height: 100%;
+}
 
 body {
     background-color: #FFF ;
     font: 14px/170% "Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 #link {
     font-size: 1em;
@@ -179,9 +187,9 @@ p#logincontainer {
 //         border-left: 1px solid black;
 // 	    border-right: 1px solid black;
     border-radius: 0px 0px 15px 15px;
-    margin: 0px 0 1cm auto;
+    margin: 0px 0px 1cm auto;
     padding: 0px 0px;
-    
+    min-height: 100%;
     text-align: center;
     width: 85%;
     overflow: hidden;
@@ -232,8 +240,6 @@ div#hinds {
   margin: -25px 0px -10px;
   text-align: left;
 
-
-
 }
 p#hinds {
   color: blue;
@@ -252,12 +258,80 @@ p#author {
   background-color: #FFF;
   position: relative;
   margin-bottom: -50px;
-    border-radius: 0px 0px 0px px;
+    border-radius: 0px 0px 0px 0px;
     border-bottom: 5px solid #FFF;
 
   
 }
 
+div#newpost {
+  width: 60%;
+  height: 55%;
+//   background-color: red;
+//   border: 1px solid black;
+  position: absolute;
+  top: 25%;
+  left: 24%;
+  text-align: center;
+}
+div#newposttitle {
+  text-align: left;
+  background-color: #FCD55A;
+  width: 100%;
+  position: absolute;
+  top: -20%;
+  height: 12%;
+  border-radius: 20px 20px 0px 0px;
+}
+div#newpoststory {
+  color: blue;
+  text-align: left;
+  height: 90%;
+  width: 100%;
+  padding: 0 0 0 0;
+  
+}
+div#selecthinds {
+  height: 13%;
+  position: absolute;
+  width: 100%;
+  background-color:#FCD55A;
+  bottom: 0%;
+  text-align: left;
+  border-radius: 0px 0px 20px 20px;
+}
+#newpoststory input[type=submit] {
+  position: absolute;
+  margin-left: 88%;
+  margin-top: 40%;
+  z-index: 1;
+  height: 43px;
+  width: 100px;
+    border-radius: 0px 0px 20px 20px;
+}
+#newpost textarea {
+  position: absolute;
+  height: 75%;
+  width: 90%;
+  left: 5%;
+    border-radius: 0px 0px 20px 20px;
+}
+#newposttitle input[type=text] {
+  height: 30px;
+  width: 75%;
+  margin-left: 10%;
+  margin-top: 8px;
+  font-size: 20px;
+
+}
+#selecthinds input[type=text] {
+  height: 30px;
+  width: 75%;
+  margin-left: 10%;
+  margin-top: 8px;
+  font-size: 20px;
+
+}
 #flash_notice, #flash_error, #flash_alert {
     margin: 10px 0;
     padding: 5px 8px;

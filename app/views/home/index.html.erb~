@@ -1,23 +1,16 @@
 <div id="container">
-
   <% if current_user %>
-    <p><%= form_for Post.new, :remote => true do |f| %></p>
-	<%= f.text_field :story %>
-	<%= f.submit %>
-      <%end%>
+  <%= link_to "Post", '#', :id => "h-button"%>
+  <div id="newpost" style="display:none"><%= render :partial => 'posts/new'%></div>
   <%end%>
-
   <% unless user_signed_in? %>
     <%= render :partial => "login"%>
   <%end%>
-
   <div id="postlist" > 
-    
     <% @posts.each do |s| %>
       <div id="post">
 	<p id="title">Title: <%= s.title.titleize if s.title%></p>
 	<p id="post"><%= s.story %></p><br />
-      
 	<div id="hinds" >
 	    <p id="hinds">Subjects:
 	    <% s.hinds.each do |h|%>
@@ -25,14 +18,20 @@
 	    <%end%>
 	    </p>
 	</div>
-	<p id="author">By: <%= s.user.name %></p>
-	
-	  
+	<p id="author">By: <%= s.author %></p>
       </div>
     <%end%>
-  
   </div>
-
-
-
 </div>
+
+<script type="text/javascript">
+$("#postlist").click(function () {
+      $(this).hide("slide", { direction: "left" }, 1000);
+});
+
+$("#toggle").click(function() {
+   $("#postlist").hide("slide", { direction: "left" }, 1000);
+   $("#newpost").fadeIn(4000, "linear");
+
+});
+</script>
