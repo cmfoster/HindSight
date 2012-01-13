@@ -7,6 +7,7 @@
      <%end%>
 <%end%>
 
+<% unless user_signed_in? %>
   <div id="logincontainer">
 	<%= form_for "user", :url => user_session_path do |f| %>
 	  <div class="txt-fld">
@@ -28,24 +29,13 @@
 	  </div>
 	<% end %>
       </div>
+<%end%>
 
   <div id="postlist" > 
     
     <% @posts.each do |s| %>
       <div id="post">
-	<p id="title">Title: <%= s.title.titleize if s.title%></p>
-	<p id="post"><%= s.story %></p><br />
-      
-	<div id="hinds" >
-	    <p id="hinds">Subjects:
-	    <% s.hinds.each do |h|%>
-	      <%= h.subject + " " %>
-	    <%end%>
-	    </p>
-	</div>
-	<p id="author">By: <%= s.user.name %></p>
-	
-	  
+      <%= render @posts%>
       </div>
     <%end%>
   
