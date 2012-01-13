@@ -69,32 +69,34 @@ a#recover {
   
 }
 
-
 .nosel {-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-o-user-select: none;user-select: none;}
 a {color: #627fa7;text-decoration: none;}
 a:hover {text-decoration: underline;}
-input[type=text], select, .active-result {border: none;border-radius: 5px;padding: 10px;font-family: Century Gothic, sans-serif;font-size: 16px;outline: none; color:black; }
-input[type=password] {border: none;border-radius: 5px;padding: 10px;font-family: Century Gothic, sans-serif;font-size: 16px;outline: none;}
-label {font-family: Century Gothic, sans-serif;font-size: 16px;font-weight: bold;}
-.txt-fld {margin: 0 auto;padding: 10px;width: 500px;text-align: left;}
-.txt-fld label {text-align: left;}
-.txt-fld input, .txt-fld select {float: right;}
-.txt-fld input[type=submit] {float: right;}
+input[type=text], select, .active-result {border: none;border-radius: 5px;padding: 1px;font-family: Century Gothic, sans-serif;font-size: 10px;outline: none; color:black; }
+input[type=password] {border: none;border-radius: 5px;padding: 1px;font-family: Century Gothic, sans-serif;font-size: 10px;outline: none;}
+label {font-family: Century Gothic, sans-serif;font-size: 10px;font-weight: bold;}
+.txt-fld {margin-left: 1px;padding: 0px;width: 10px;text-align: left;}
+.txt-fld label {text-align: left; color: #6B6DC1;}
+.txt-fld input, .txt-fld select {position: relative; border: 1px solid black;}
+.txt-fld input[type=submit] {position: relative;}
 .txt-fld input[type=file] {color: #FFF;}
 .txt-fld textarea {
-    float: right;
-    height: 100px;
-    width: 350px;
+    position: relative;
+    height: 20px;
+    width: 30px;
 }
 .txt-fld .chzn-container {
     float: right;
 }
-.txt-fld select {height: 40px;}
-.btn-fld {border-top: 1px dotted #FFF;border-bottom: 1px dotted #FFF;margin: 0 auto;padding: 10px;width: 550px;text-align: left;}
-.btn-fld input[type=submit] {float: right;font-size: 16px;}
-input[type=submit] {background: #b7db79;border: none;border-radius: 5px;color: #FFF;cursor: pointer;font-family: Arial, Helvetica, sans-serif;font-size: 16px;font-weight: bold;padding: 10px;text-shadow: 1px 1px 1px #333;}
+.txt-fld select {height: 10px;}
+.btn-fld {position: relative;clear:left;padding: 2px 5px;text-align: left; }
+.btn-fld input[type=submit] {float: right;clear: left;margin: 5px 5px;font-size: 10px;}
+input[type=submit] {background: #b7db79;border: none;border-radius: 5px;color: #FFF;cursor: pointer;font-family: Arial, Helvetica, sans-serif;font-size: 10px;font-weight: bold;padding: 10px;text-shadow: 1px 1px 1px #333;}
 input[type=submit]:hover {}
 input[type=submit]:active {}
+
+
+
 a.button {border: 10px solid #444;border-radius: 10px;display: inline-block;height: 50px;margin: 10px 20px;padding: 20px;text-shadow: 0 2px 2px #630000;}
 a.h-button {
     color: #FFF;
