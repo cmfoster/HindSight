@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
-    @postlist = @user.posts
+    @postlist = @user.posts.all(:order => "created_at DESC", :limit => 10)
     subfind = Array.new
     @posts.each do |p|
       p.hinds.each do |h|
@@ -12,6 +12,11 @@ class UsersController < ApplicationController
       end
     end    
     @subjects = subfind.last(5)
+    @post = Post.find(param[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
     
   def edit

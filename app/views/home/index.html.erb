@@ -1,7 +1,6 @@
 <div id="container">
   <% if current_user %>
-  <%= link_to "Post", new_post_path(@user), :id => "login"%>
-  <div id="newpost" style="display:none"><%= render :partial => 'posts/new'%></div>
+    <%= link_to "Post", new_post_path(@user), :id => "newpostbttn"%>
   <%end%>
   <% unless user_signed_in? %>
     <%= render :partial => "login"%>
@@ -9,7 +8,7 @@
   <div id="postlist" > 
     <% @posts.each do |s| %>
       <div id="post">
-	<p id="title"><%= link_to s.title.titleize, post_path(s) if s.title%></p>
+	<p id="title"><%= link_to s.title.titleize, post_path(s), :remote => true %></p>
 	<p id="post"><%= s.story.html_safe.truncate(90) %></p><br />
 	<div id="hinds" >
 	    <p id="hinds">Subjects:
@@ -18,13 +17,16 @@
 	    <%end%>
 	    </p>
 	</div>
-	<p id="author">By: <%= link_to s.author, user_path(s.user_id) %></p>
+	<p id="author">By: <%= link_to s.author, user_path(s.user_id), :remote => true %></p>
       </div>
       <hr style="opacity: .5;" />
     <%end%>
   </div>
+  <div id="rightdiv">
+  </div>
 </div>
-
+<div id="rightlinkcolumn" style="height:100%;">
+</div>
 <script type="text/javascript">
 
 // $("#toggle").click(function() {

@@ -1,15 +1,18 @@
+<!--  The reason ajax update of the #rightdiv doesnt work is because 
+#rightdiv isnt included in this HTML file, is messes up the divs when
+inserted, fix this when you have time-->
 <div id="container">
   <% if current_user %>
-  <%= link_to "Post", new_post_path(@user), :id => "login"%>
-  <div id="newpost" style="display:none"><%= render :partial => 'posts/new'%></div>
-  <%end%>
+    <%= link_to "Post", new_post_path(@user), :id => "login"%>
+    <div id="newpost" style="display:none"><%= render :partial => 'posts/new'%></div>
+   <%end%>
 <!--  <% unless user_signed_in? %>
     <%= render :partial => "home/login"%>
   <%end%>-->
-  <div id="postlist" > 
+   <div id="postlist" > 
     <% @postlist.each do |s| %>
       <div id="post">
-	<p id="title"><%= link_to s.title.titleize, post_path(s) if s.title%></p>
+	<p id="title"><%= link_to s.title.titleize, post_path(s), :remote => true %></p>
 	<p id="post"><%= s.story.html_safe.truncate(90) %></p><br />
 	<div id="hinds" >
 	    <p id="hinds">Subjects:
@@ -18,37 +21,39 @@
 	    <%end%>
 	    </p>
 	</div>
-	<p id="author">By: <%= link_to s.author, user_path(s.user_id) %></p>
+	<p id="author">By: <%= link_to s.author, user_path(s.user_id), :remote => true %></p>
       </div>
       <hr style="opacity: .5;" />
-    <%end%>
+      <%end%>
+    </div>
+  <div id="usercontainer">
+    <%= image_tag("https://lh3.googleusercontent.com/-Y2tT2HPzBYM/AAAAAAAAAAI/AAAAAAAAAGc/7HRmHnsS4Ig/s200-c-k/photo.jpg", :id => "picture")%>
+    <div id="userinfo"> 
+      <% if @user.city %>
+	<p><h3 style="padding-top: 0; padding-bottom: 2px; margin-top: 0; margin-bottom: 0; display:inline;">City:</h3> <%= @user.city%></p><br />
+      <% end %>
+      <% if @user.state %>
+	<br /> <p><h3 style="padding-top: 0; margin-top: 0; margin-bottom: 0; display: inline; ">State:</h3> <%= @user.state%></p>
+      <%end%>
+    </div>
+    <p id="subjects"> Common Subjects: 
+      <%@subjects.each do |s|%>
+	<%= link_to s.subject+" ", hind_path(s), :id => "sublinks"%>
+      <%end%> 
+    </p>
+    <p id="aboutuser">
+      <% if @user.about? %>
+	<%= "	" + @user.about %>
+      <% else %>
+	User has not yet filled this out.
+      <% end %>
+    </p>
   </div>
-<div id="usercontainer">
-  <%= image_tag("https://lh3.googleusercontent.com/-Y2tT2HPzBYM/AAAAAAAAAAI/AAAAAAAAAGc/7HRmHnsS4Ig/s200-c-k/photo.jpg", :id => "picture")%>
-  <div id="userinfo"> 
-    <% if @user.city %>
-      <p><h3 style="padding-top: 0; padding-bottom: 2px; margin-top: 0; margin-bottom: 0; display:inline;">City:</h3> <%= @user.city%></p><br />
-    <% end %>
-    <% if @user.state %>
-    <br /> <p><h3 style="padding-top: 0; margin-top: 0; margin-bottom: 0; display: inline; ">State:</h3> <%= @user.state%></p>
-    <%end%>
-  </div>
-  <p id="subjects"> Common Subjects: 
-    <%@subjects.each do |s|%>
-      <%= link_to s.subject+" ", hind_path(s), :id => "sublinks"%>
-    <%end%> 
-  </p>
-  <p id="aboutuser">
-    <% if @user.about? %>
-      <%= "	" + @user.about %>
-    <% else %>
-      User has not yet filled this out.
-    <% end %>
-  </p>
+ </div>
+<div id="rightlinkcolumn" style="height:100%;">
 </div>
-
 </div>
-
+</div>
 <script type="text/javascript">
 
 // $("#toggle").click(function() {

@@ -12,6 +12,10 @@ class UsersController < ApplicationController
       end
     end    
     @subjects = subfind.last(5)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
     
   def edit
