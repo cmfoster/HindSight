@@ -9,8 +9,8 @@
   <div id="postlist" > 
     <% @posts.each do |s| %>
       <div id="post">
-	<p id="title">Title: <%= s.title.titleize if s.title%></p>
-	<p id="post"><%= s.story.truncate(70) %></p><br />
+	<p id="title"><%= link_to s.title.titleize, post_path(s) if s.title%></p>
+	<p id="post"><%= s.story.html_safe.truncate(70) %></p><br />
 	<div id="hinds" >
 	    <p id="hinds">Subjects:
 	    <% s.hinds.each do |h|%>
@@ -20,6 +20,7 @@
 	</div>
 	<p id="author">By: <%= link_to s.author, user_path(s.user_id) %></p>
       </div>
+      <hr style="opacity: .5;" />
     <%end%>
   </div>
 </div>

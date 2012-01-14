@@ -3,7 +3,15 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts(:order => "created_at ASC")
+    @posts = @user.posts
+    @postlist = @user.posts
+    subfind = Array.new
+    @posts.each do |p|
+      p.hinds.each do |h|
+	subfind << h if h.subject?
+      end
+    end    
+    @subjects = subfind.last(5)
   end
     
   def edit

@@ -7,10 +7,10 @@
     <%= render :partial => "home/login"%>
   <%end%>
   <div id="postlist" > 
-    <% @posts.order("created_at DESC").each do |s| %>
+    <% @postlist.each do |s| %>
       <div id="post">
 	<p id="title"><%= link_to s.title.titleize, post_path(s) if s.title%></p>
-	<p id="post"><%= s.story.html_safe.truncate(50) %></p><br />
+	<p id="post"><%= s.story.html_safe.truncate(90) %></p><br />
 	<div id="hinds" >
 	    <p id="hinds">Subjects:
 	    <% s.hinds.each do |h|%>
@@ -23,16 +23,21 @@
       <hr style="opacity: .5;" />
     <%end%>
   </div>
+<div id="usercontainer">
   <%= image_tag("https://lh3.googleusercontent.com/-Y2tT2HPzBYM/AAAAAAAAAAI/AAAAAAAAAGc/7HRmHnsS4Ig/s200-c-k/photo.jpg", :id => "picture")%>
   <div id="userinfo"> 
     <% if @user.city %>
-      <p><h3 style="padding-top: 0; padding-bottom: 2px; margin-top: 0; margin-bottom: 0; display:inline;">City:</h3> <%= @user.city%></p>
+      <p><h3 style="padding-top: 0; padding-bottom: 2px; margin-top: 0; margin-bottom: 0; display:inline;">City:</h3> <%= @user.city%></p><br />
     <% end %>
     <% if @user.state %>
-     <p><h3 style="padding-top: 0; margin-top: 0; margin-bottom: 0; display: inline; ">State:</h3> <%= @user.state%></p>
+    <br /> <p><h3 style="padding-top: 0; margin-top: 0; margin-bottom: 0; display: inline; ">State:</h3> <%= @user.state%></p>
     <%end%>
   </div>
-  <p id="subjects"> Subjects: </p>
+  <p id="subjects"> Common Subjects: 
+    <%@subjects.each do |s|%>
+      <%= link_to s.subject+" ", hind_path(s), :id => "sublinks"%>
+    <%end%> 
+  </p>
   <p id="aboutuser">
     <% if @user.about? %>
       <%= "	" + @user.about %>
@@ -40,6 +45,8 @@
       User has not yet filled this out.
     <% end %>
   </p>
+</div>
+
 </div>
 
 <script type="text/javascript">

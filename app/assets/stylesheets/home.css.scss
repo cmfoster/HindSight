@@ -343,14 +343,30 @@ div#selecthinds {
   font-size: 20px;
 
 }
-p#aboutuser {
-  clear: both;
+//------------------------------------------
+// User - Show 
+div#usercontainer {
+  background-color: #EEEEEE;
+  position: absolute;
   float: right;
-  margin-top: -40%;
-  margin-right: 6.2%;
+  clear: left;
+  top: 0%;
+  right: 5%;
+  margin: 10% 0 ;
+  width: 40%;
+  min-height: 490px;
+  border-radius: 15px 15px 15px 15px;
+  overflow:hidden;
+}
+p#aboutuser {
+
+  position: absolute;
+  clear: both;
   min-height: 250px;
-  width: 45%;
-//   border: 1px solid black;
+  width: 98%;
+  left: 1px;
+  top: 42%;
+  //   border: 1px solid black;
   text-align: left;
   background-color:#ffffff;
   opacity:0.6;
@@ -360,36 +376,39 @@ p#aboutuser {
 }
 p#subjects {
     clear: both;
-  float: right;
-  margin-top: -45%;
-  margin-right: 6.3%;
-  min-height: 30px;
-  width: 45.1%;
+  position: absolute;
+  top: 32%;
+  height: 30px;
+  width: 100%;
 //    border: 1px solid black;
   text-align: left;
   background-color: #6B6DC1;
-  border-radius: 10px 10px 10px 10px;
+//   word-spacing:30px;
+//   border-radius: 10px 10px 10px 10px;
+}
+p#subjects a#sublinks {
+  color: #6BBA70;
+  font-weight: bold;
+  font-size: 17px;
+  
 }
 div#userinfo {
-    clear: left;
-  float: right;
-  margin-top: -52%;
-  margin-right: 37.0%;
-  height: 60px;
-  width: 15%;
-//    border: 1px solid black;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  height: auto;
+  width: auto;
   text-align: left;
 }
 div#userinfo p {
-
+  display: inline;
   padding: 0;
   margin: 0;
 }
 img#picture {
-      clear: left;
-  float: right;
-  margin-top: -60.6%;
-  margin-right: 20%;
+ position: absolute;
+  top: 1%;
+  right: 1%;
   height: 160px;
   width: 160px;
   border-radius: 5px 5px 5px 5px;
@@ -402,7 +421,7 @@ img#picture {
 
 div#postshow {
   width: 70%;
-  min-height: 700px;
+  min-height: 400px;
 //   border: 1px solid black;
   margin: 2% 15% 0;
   border-radius: 35px 35px 0 0;
@@ -426,8 +445,14 @@ div#postshow p#subs {
  margin: 0;
    background-color: #6B6DC1;
    opacity: 0.6;
+   padding-bottom: 10px;
 //    border-radius: 10px 10px 0 0;
-
+}
+div#postshow p#subs a#sublinks {
+  color: #6BBA70;
+  font-weight: bold;
+  font-size: 17px;
+  
 }
 div#postshow p#poststory {
   text-align: left;

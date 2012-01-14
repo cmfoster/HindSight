@@ -10,7 +10,7 @@
     <% @posts.each do |s| %>
       <div id="post">
 	<p id="title"><%= link_to s.title.titleize, post_path(s) if s.title%></p>
-	<p id="post"><%= s.story.truncate(70) %></p><br />
+	<p id="post"><%= s.story.html_safe.truncate(90) %></p><br />
 	<div id="hinds" >
 	    <p id="hinds">Subjects:
 	    <% s.hinds.each do |h|%>

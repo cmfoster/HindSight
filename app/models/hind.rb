@@ -1,4 +1,4 @@
 class Hind < ActiveRecord::Base
-  belongs_to :posts
+  belongs_to :post
   validates_presence_of :subject
 end
