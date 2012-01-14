@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-color: #FFF ;
+    background-color: #e2f0fb ;
     font: 14px/170% "Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;
     margin: 0;
     padding: 0;
@@ -85,7 +85,7 @@ input[type=password] {border: none;border-radius: 5px;padding: 1px;font-family: 
 label {font-family: Century Gothic, sans-serif;font-size: 10px;font-weight: bold;}
 .txt-fld {margin-left: 1px;padding: 0px;width: 10px;text-align: left;}
 .txt-fld label {text-align: left; color: #6B6DC1;}
-.txt-fld input, .txt-fld select {position: relative; border: 1px solid black;}
+.txt-fld input, .txt-fld select {position: relative; border: 2px solid black;   opacity:0.6;}
 .txt-fld input[type=submit] {position: relative;}
 .txt-fld input[type=file] {color: #FFF;}
 .txt-fld textarea {
@@ -169,17 +169,20 @@ div#logincontainer {
   clear: left;
   height: 160px;
   width: 200px;
-  background-color: #FFF;
+  background-color: #e2f0fb;
   border-radius: 15px 0px 0 15px;
   margin-top: 1cm;
   text-align: left;
 }
+
 p#logincontainer {
   font-weight:bold; 
   text-align:center; 
   color:#6B6DC1; 
   font-size: 10px;
   margin: 0 auto;
+  position: relative; // added no effect
+  clear: left; // added no effec
 }
 #container {
     background-color: #6EB3EA;
@@ -197,7 +200,9 @@ p#logincontainer {
 div#postlist {
 
 //     border: 1px solid black;
-    background-color: #FFF;
+  background-color:#ffffff;
+  opacity:0.8; // this and line below added, transpatent
+  filter:alpha(opacity=60); /* For IE8 and earlier */
     height: auto;
     margin: 2cm 0px 15px;
     overflow: hidden;
@@ -205,6 +210,8 @@ div#postlist {
     text-align: center;
     width: 40%;
         border-radius: 0px 40px 40px 0px;
+	clear: right; //changed from clear: both
+// 	float: left; //changed
 }
 div#post {   
   border-radius: 15px 15px 15px 15px;
@@ -314,7 +321,7 @@ div#selecthinds {
   height: 75%;
   width: 90%;
   left: 5%;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 10px 10px 10px 10px;
 }
 #newposttitle input[type=text] {
   height: 30px;
@@ -331,6 +338,60 @@ div#selecthinds {
   margin-top: 8px;
   font-size: 20px;
 
+}
+p#aboutuser {
+  clear: both;
+  float: right;
+  margin-top: -40%;
+  margin-right: 6.2%;
+  min-height: 250px;
+  width: 45%;
+//   border: 1px solid black;
+  text-align: left;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+    border-radius: 10px 10px 10px 10px;
+
+}
+p#subjects {
+    clear: both;
+  float: right;
+  margin-top: -45%;
+  margin-right: 6.3%;
+  min-height: 30px;
+  width: 45.1%;
+//    border: 1px solid black;
+  text-align: left;
+  background-color: #6B6DC1;
+  border-radius: 10px 10px 10px 10px;
+}
+div#userinfo {
+    clear: left;
+  float: right;
+  margin-top: -52%;
+  margin-right: 37.0%;
+  height: 60px;
+  width: 15%;
+//    border: 1px solid black;
+  text-align: left;
+}
+div#userinfo p {
+
+  padding: 0;
+  margin: 0;
+}
+img#picture {
+      clear: left;
+  float: right;
+  margin-top: -60.6%;
+  margin-right: 20%;
+  height: 160px;
+  width: 160px;
+  border-radius: 5px 5px 5px 5px;
+//    border: 1px solid black;
+  text-align: left;
 }
 #flash_notice, #flash_error, #flash_alert {
     margin: 10px 0;

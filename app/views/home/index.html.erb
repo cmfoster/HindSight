@@ -10,7 +10,7 @@
     <% @posts.each do |s| %>
       <div id="post">
 	<p id="title">Title: <%= s.title.titleize if s.title%></p>
-	<p id="post"><%= s.story %></p><br />
+	<p id="post"><%= s.story.truncate(50) %></p><br />
 	<div id="hinds" >
 	    <p id="hinds">Subjects:
 	    <% s.hinds.each do |h|%>
@@ -18,16 +18,13 @@
 	    <%end%>
 	    </p>
 	</div>
-	<p id="author">By: <%= s.author %></p>
+	<p id="author">By: <%= link_to s.author, user_path(s.user_id) %></p>
       </div>
     <%end%>
   </div>
 </div>
 
 <script type="text/javascript">
-$("#postlist").click(function () {
-      $(this).hide("slide", { direction: "left" }, 1000);
-});
 
 $("#toggle").click(function() {
    $("#postlist").hide("slide", { direction: "left" }, 1000);

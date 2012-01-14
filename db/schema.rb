@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120113053547) do
+ActiveRecord::Schema.define(:version => 20120114065602) do
 
   create_table "hinds", :force => true do |t|
     t.string   "subject"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120113053547) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "login"
+    t.text     "about"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
