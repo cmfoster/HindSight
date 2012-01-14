@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     if @post
       respond_to do |format|
-	format.js
+	format.html
       end
     end
   end
