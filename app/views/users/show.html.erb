@@ -1,11 +1,11 @@
 <div id="container">
   <% if current_user %>
-  <%= link_to "Post", '#', :id => "toggle"%>
+  <%= link_to "Post", new_post_path(@user), :id => "login"%>
   <div id="newpost" style="display:none"><%= render :partial => 'posts/new'%></div>
   <%end%>
-  <% unless user_signed_in? %>
+<!--  <% unless user_signed_in? %>
     <%= render :partial => "home/login"%>
-  <%end%>
+  <%end%>-->
   <div id="postlist" > 
     <% @postlist.each do |s| %>
       <div id="post">
@@ -51,9 +51,9 @@
 
 <script type="text/javascript">
 
-$("#toggle").click(function() {
-   $("#postlist").hide("slide", { direction: "left" }, 1000);
-   $("#newpost").fadeIn(4000, "linear");
-
-});
+// $("#toggle").click(function() {
+//    $("#postlist").hide("slide", { direction: "left" }, 1000);
+//    $("#newpost").fadeIn(4000, "linear");
+// 
+// });
 </script>

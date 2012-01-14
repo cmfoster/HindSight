@@ -7,6 +7,10 @@ class PostsController < ApplicationController
       end
     end
   end
+  
+  def new
+    @post = Post.new
+  end
 
   def update
     @post = Post.find_by_id(params[:id])
