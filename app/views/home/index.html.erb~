@@ -1,6 +1,6 @@
 <div id="container">
   <% if current_user %>
-    <%= link_to "Post", new_post_path(@user), :id => "newpostbttn"%>
+    <%= link_to "Post", new_user_post_path(@user), :format => "html", :id => "newpostbttn"%>
   <%end%>
   <% unless user_signed_in? %>
     <%= render :partial => "login"%>

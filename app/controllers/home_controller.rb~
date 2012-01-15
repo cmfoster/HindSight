@@ -3,6 +3,15 @@ class HomeController < ApplicationController
   def index
     @user = current_user if current_user
     @posts = Post.find(:all, :order => "created_at DESC", :limit => 10) 
+    
+  end
+  
+  def userposts
+    @user = User.find(params[:id])
+    @userposts = @user.posts.all(:order => "created_at DESC")
+    respond_to do |format|
+      format.js { @userposts}
+    end    
   end
 
 end

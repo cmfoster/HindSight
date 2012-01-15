@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       end
     end    
     @subjects = subfind.last(5)
-    @post = Post.find(param[:id])
     respond_to do |format|
       format.html
       format.js
@@ -23,4 +22,14 @@ class UsersController < ApplicationController
     @user = current_user if current_user
   end
 
+  def userposts
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @userposts = @user.posts.order('posts.created_at DESC')
+      respond_to do |format|
+	format.js {@userposts}
+      end
+    end
+  end
+  
 end

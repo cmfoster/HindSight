@@ -22,4 +22,14 @@ class UsersController < ApplicationController
     @user = current_user if current_user
   end
 
+  def userposts
+    if params[:user_id].present? # use this method to add a fallback if something goes wrong
+      @user = User.find(params[:user_id])
+      @userposts = @user.posts.order('posts.created_at DESC')
+      respond_to do |format|
+	format.js {@userposts}
+      end
+    end
+  end
+  
 end

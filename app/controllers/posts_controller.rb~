@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 	format.html
 	format.js
       end
+    end
   end
   
   def new

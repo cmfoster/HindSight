@@ -5,9 +5,15 @@ Hindsight::Application.routes.draw do
     match '/login' => 'devise/sessions#new'
     match '/signout' => 'devise/sessions#destroy'
     root :to => "home#index"
-    resources :posts
-    resources :hinds
   end
+  
+  resources :users do
+    get :userposts
+    resources :posts do
+      resources :hinds
+    end
+  end
+    
 
   root :to => 'home#index'
   
