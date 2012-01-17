@@ -16,6 +16,9 @@ Hindsight::Application.routes.draw do
     
 
   root :to => 'home#index'
+  resources :home do
+    get :popularposts
+  end
   
   resources :users, :only => [:show]
   resources :posts, :only => [:show]

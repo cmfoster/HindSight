@@ -6,6 +6,7 @@ gem 'json'
 gem 'devise'
 gem 'jquery-rails'
 gem 'cleditor_rails'
+gem 'rest_in_place'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -21,4 +22,3 @@ end
 
 # To use debugger
 # gem 'ruby-debug'
-

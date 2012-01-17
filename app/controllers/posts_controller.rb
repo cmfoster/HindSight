@@ -1,19 +1,16 @@
 class PostsController < ApplicationController
+  respond_to :html, :js
+  
   def show
     @post = Post.find(params[:id])
     if @post
-      respond_to do |format|
-	format.html
-	format.js
-      end
+      respond_with @post
     end
   end
   
   def new
     @post = Post.new
-    respond_to do |format|
-      format.html
-    end
+    respond_with @post
   end
 
   def update

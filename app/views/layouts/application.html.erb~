@@ -2,14 +2,15 @@
 <html>
 <head>
   <title>Hindsight</title>
+<%= favicon_link_tag %>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <div id="topbar">
 <!--   <%= link_to "Login", login_path, :id => "login" unless current_user %>-->
-    <%= link_to "Logout", signout_path,	 :id => "logout" if current_user %>
-    <%= link_to "Home", root_path unless path == root_path %>
-    <p class="notice" style="position:absolute;"><%= notice %></p>
+    <%= link_to current_user.email, user_path(current_user.id), :remote => true if current_user %>
+      <%= link_to "Logout", signout_path,	 :id => "logout" if current_user %>
+  <p class="notice" style="position:absolute;"><%= notice %></p>
     <p class="alert" style="position:absolute;"><%= alert %></p>
   </div>
 

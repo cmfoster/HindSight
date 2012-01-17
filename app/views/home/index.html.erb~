@@ -1,14 +1,20 @@
+<%= link_to "Home", root_path, :id => "homebttn" %>
+<% if current_user %>
+  <%= link_to "Create Post", new_user_post_path(@user), :style => "display:none", :id => "newpostbttn", :remote => true %>
+<%end%>
 <div id="container">
-  <% if current_user %>
-    <%= link_to "Post", new_user_post_path(@user), :format => "html", :id => "newpostbttn"%>
-  <%end%>
+  <%= link_to "New Posts", root_path, :id => "newest", :remote => true %>
+  <%= link_to "Popular", home_popularposts_path(@posts), :id => "popular", :remote => true %>
   <% unless user_signed_in? %>
     <%= render :partial => "login"%>
   <%end%>
+  <div id="paginator">
+    <%= paginate @posts, :remote => true %>
+  </div>
   <div id="postlist" > 
     <% @posts.each do |s| %>
       <div id="post">
-	<p id="title"><%= link_to s.title.titleize, post_path(s), :remote => true %></p>
+	<p id="title"><%= link_to s.title, post_path(s), :remote => true %></p>
 	<p id="post"><%= s.story.html_safe.truncate(90) %></p><br />
 	<div id="hinds" >
 	    <p id="hinds">Subjects:
@@ -22,13 +28,19 @@
       <hr style="opacity: .5;" />
     <%end%>
   </div>
-  <div id="rightdiv">
+  <div id="rightdiv">  
   </div>
 </div>
-<div id="rightlinkcolumn" style="height:100%;">
+<div id="rightlinkcolumn" >
+</div>
+<div id="leftlinkcolumn">
 </div>
 <script type="text/javascript">
 
+$(document).ready(function() {
+  /* Activating Best In Place */
+    $("#newpostbttn").fadeIn(9000);
+});
 // $("#toggle").click(function() {
 //    $("#postlist").hide("slide", { direction: "left" }, 1000);
 //    $("#newpost").fadeIn(4000, "linear");
