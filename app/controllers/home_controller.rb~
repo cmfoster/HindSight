@@ -3,14 +3,13 @@ class HomeController < ApplicationController
  
   def index
     @user = current_user if current_user
-    @posts = Post.order("created_at DESC").page(params[:page]).per(10)
+    @posts = Post.order("created_at ASC").page(params[:page]).per(10)
     respond_with @posts
   end
-  
+
   def popularposts
     #Change this when you add in voting
     @posts = Post.order("title").page(params[:page]).per(10)
-    @posts2 = Post.new
     respond_with @posts
   end
   

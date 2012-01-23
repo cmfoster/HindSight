@@ -8,6 +8,10 @@ gem 'jquery-rails'
 gem 'cleditor_rails'
 gem "best_in_place"
 gem 'kaminari'
+gem 'thumbs_up'
+gem "paperclip", "~> 2.0"
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"

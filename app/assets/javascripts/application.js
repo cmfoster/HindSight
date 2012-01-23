@@ -7,8 +7,10 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
 //= require watermark
 //= require cleditor
 //= require jquery.purr
 //= require best_in_place
+//= require twitter/bootstrap

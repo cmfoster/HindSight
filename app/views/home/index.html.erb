@@ -1,49 +1,25 @@
-<%= link_to "Home", root_path, :id => "homebttn" %>
-<% if current_user %>
-  <%= link_to "Create Post", new_user_post_path(@user), :style => "display:none", :id => "newpostbttn", :remote => true %>
-<%end%>
-<div id="container">
-  <%= link_to "New Posts", root_path, :id => "newest", :remote => true %>
-  <%= link_to "Popular", home_popularposts_path(@posts), :id => "popular", :remote => true %>
-  <% unless user_signed_in? %>
-    <%= render :partial => "login"%>
-  <%end%>
-  <div id="paginator">
-    <%= paginate @posts, :remote => true %>
-  </div>
-  <div id="postlist" > 
-    <% @posts.each do |s| %>
-      <div id="post">
-	<p id="title"><%= link_to s.title, post_path(s), :remote => true %></p>
-	<p id="post"><%= s.story.html_safe.truncate(90) %></p><br />
-	<div id="hinds" >
-	    <p id="hinds">Subjects:
-	    <% s.hinds.each do |h|%>
-	      <%= h.subject + " " %>
-	    <%end%>
-	    </p>
-	</div>
-	<p id="author">By: <%= link_to s.author, user_path(s.user_id), :remote => true %></p>
+<div class="container" style="background-color: #EEE;">
+      <div class="content">
+        <div class="page-header">
+          <h1>Project HindSight <small>I knew you should have built this site sooner...</small></h1>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <h2>Post Listings</h2>
+	    <div class="row" id="postlist">
+	      <%= render :partial => 'postlist'%>
+	    </div>
+          </div>
+          <div class="span11" id="contentarea">
+<!--	    Render Content Area-->
+	  </div>
+	  <div class="span3">Tiny link area</div>
+        </div>
       </div>
-      <hr style="opacity: .5; width: 97%;" />
-    <%end%>
-  </div>
-  <div id="rightdiv">  
-  </div>
-</div>
-<div id="rightlinkcolumn" >
-</div>
-<div id="leftlinkcolumn">
-</div>
-<script type="text/javascript">
 
-$(document).ready(function() {
-  /* Activating Best In Place */
-    $("#newpostbttn").fadeIn(9000);
-});
-// $("#toggle").click(function() {
-//    $("#postlist").hide("slide", { direction: "left" }, 1000);
-//    $("#newpost").fadeIn(4000, "linear");
-// 
-// });
-</script>
+      <footer>
+        <p>&copy; HindSight 2011</p>
+
+      </footer>
+
+</div>

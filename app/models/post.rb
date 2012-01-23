@@ -3,4 +3,5 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :hinds
   has_many :comments
+  acts_as_voteable
 end
