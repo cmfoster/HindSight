@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   def index
     @user = current_user if current_user
     @posts = Post.order("created_at DESC").page(params[:page]).per(10)
+    @tags = Tag.order("created_at DESC").page(params[:page]).per(10)
     respond_with @posts
   end
 

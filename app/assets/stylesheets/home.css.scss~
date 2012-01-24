@@ -158,7 +158,7 @@ div#usercontainer {
 p#aboutuser {
 
   clear: both;
-  min-height: 250px;
+  min-height: 150px;
   width: 94.5%;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -212,4 +212,52 @@ h3#userh3 {
   color: #444444;
   font-family: 'Trebuchet MS','Helvetica Neue',Arial,Sans-serif;
   font-weight: normal;
+}
+//--------------------------------------------
+// New Post
+
+#tag_subjects input[type=submit] {
+  height: 40px;
+  width: 80px;
+  margin: 5px 5px 0px 0px;
+  border-radius: 5px 5px 5px 5px;
+}
+#tag_subjects input[type=submit]:hover {
+    border: 1px solid black;
+}
+textarea#storyarea {
+  width: 500px;
+  height: 150px;
+  margin-bottom: 5px;
+  resize: none;
+//     border-radius: 10px 10px 10px 10px; // looks funkey with this
+}textarea#solutionarea {
+  width: 500px;
+  height: 150px;
+  margin-bottom: 10px;
+  resize: none;
+//     border-radius: 10px 10px 10px 10px; // looks funkey with this
+}
+textarea#storyarea:hover {
+  border: 1px solid black;
+}
+textarea#solutionarea:hover {
+  border: 1px solid black;
+}
+input#titlearea[type=text] {
+  height: 30px;
+  width: 500px;
+  font-size: 20px;
+
+}
+#tag_subjects input[type=text] {
+  height: 30px;
+  width: 75%;
+  margin-left: 12%;
+  margin-top: 8px;
+  font-size: 20px;
+
+}
+input#titlearea[type=text]:hover {
+  border: 1px solid black;
 }

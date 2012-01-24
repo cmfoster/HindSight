@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def userposts
     if params[:user_id].present? # use this method to add a fallback if something goes wrong
       @user = User.find(params[:user_id])
-      @userposts = @user.posts.order('posts.created_at ASC')
+      @userposts = @user.posts.order('posts.created_at ASC').page(params[:page]).per(10)
       respond_with @userposts
     end
   end

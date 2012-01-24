@@ -98,7 +98,8 @@
 	    We want to hear your story.
 	    </p>
 	  <% else %>
-	    <p class="pull-right">Logged in as <%= link_to @user.name if @user.name%></p>
+	    <%= link_to "Logout", signout_path, :style=> 'color:red;margin-top:5px;margin-right:-110px;', :class => 'btn pull-right' %>
+	    <p class="pull-right" style="margin-right:80px;">Logged in as <strong><%= link_to @user.name, user_path(@user), :remote => true if @user.name%></strong></p>
 	  <% end %>
         </div>
       </div>

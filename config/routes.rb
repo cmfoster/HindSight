@@ -10,7 +10,7 @@ Hindsight::Application.routes.draw do
   resources :users do
     get :userposts
     resources :posts do
-      resources :hinds
+      resources :tags
     end
   end
     
@@ -22,6 +22,6 @@ Hindsight::Application.routes.draw do
   
   resources :users, :only => [:show]
   resources :posts, :only => [:show]
-  resources :hinds, :only => [:show]
+  resources :tags, :only => [:show]
   
 end

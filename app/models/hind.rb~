@@ -1,4 +1,15 @@
 class Hind < ActiveRecord::Base
-  belongs_to :posts
+  belongs_to :post
   validates_presence_of :subject
+  
+  def use_count
+    Hind.where('subject = ?', self.subject).count
+  end
+  
+  def self.used
+    unique = self.find(:all, :group => :subject)
+    unique.each do |a|
+      a.use_count
+    end      
+  end
 end

@@ -3,7 +3,8 @@ class HomeController < ApplicationController
  
   def index
     @user = current_user if current_user
-    @posts = Post.order("created_at ASC").page(params[:page]).per(10)
+    @posts = Post.order("created_at DESC").page(params[:page]).per(10)
+    @hinds = Hind.order("created_at DESC").page(params[:page]).per(10)
     respond_with @posts
   end
 

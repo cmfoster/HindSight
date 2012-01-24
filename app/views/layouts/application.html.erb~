@@ -76,7 +76,7 @@
 
     <div class="topbar">
         <div class="container" style="background-color: #4096EE;">
-          <%= link_to "Hindsight", root_path, :style => 'brand' %>
+          <%= link_to "Hindsight", root_path, :class => 'brand' %>
 
           <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
@@ -98,7 +98,8 @@
 	    We want to hear your story.
 	    </p>
 	  <% else %>
-	    <p class="pull-right">Logged in as <%= link_to @user.name if @user.name%></p>
+	    <%= link_to "Logout", signout_path, :style=> 'color:red;margin-top:5px;margin-right:-110px;', :class => 'btn pull-right' %>
+	    <p class="pull-right" style="margin-right:80px;">Logged in as <strong><%= link_to @user.name, user_path(@user) if @user.name%></strong></p>
 	  <% end %>
         </div>
       </div>
