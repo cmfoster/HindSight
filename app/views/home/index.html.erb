@@ -4,26 +4,21 @@
           <h1>Project HindSight <small>I knew you should have built this site sooner...</small></h1>
         </div>
         <div class="row">
-	  <div class="span6" id="search1" style="display:none; height:500px; border:1px solid black;">
-	    <h2>Search by subject</h2>
-	    <% @tags.each do |subject|%>
-	      <div style="border:1px solid black;" align="center"><%= subject.subject %></div><br />
-	    <% end %>
-	  </div>
           <div class="span6" id="postcolumn">
-	    <%= link_to "New Post", new_user_post_path(@user), :class => 'btn pull-right', :remote => true%>
+	    <%= link_to "New Post", new_user_post_path(@user), :class => 'btn pull-right', :style => 'margin-right:10px;color: green;', :remote => true if current_user%>
             <h2>Post Listings</h2>
 	    <div class="row" id="postlist">
 	      <%= render :partial => 'postlist'%>
 	    </div>
           </div>
-          <div class="span11" id="contentarea">
+          <div class="span11" id="contentarea" style="padding-left: 0px;">
 <!--	    Render Content Area-->
-	    <center><h1> Site Content Area</h1></center> 
-	    <%= link_to "toggle", '#', :id => 'srch'%>
+<!--	    <center><h1> Site Content Area</h1></center> -->
+	    <%= render :partial => 'browse'%>
+<!--	    <%= link_to "toggle", '#', :id => 'srch'%>-->
 	  </div>
-	  <div class="span3">Tiny link area</div>
-        </div>
+	  <div class="span3" id="linkarea">Tiny link area</div>
+	</div>
       </div>
 
       <footer>

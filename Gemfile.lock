@@ -31,6 +31,9 @@ GEM
     activesupport (3.1.0)
       multi_json (~> 1.0)
     arel (2.2.1)
+    autosuggest-rb (0.1.6)
+      rails (~> 3.0)
+      yajl-ruby
     bcrypt-ruby (3.0.1)
     best_in_place (1.0.4)
       jquery-rails
@@ -145,11 +148,13 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.0)
       rack (>= 1.0)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  autosuggest-rb
   best_in_place
   cleditor_rails
   coffee-rails (~> 3.1.0)

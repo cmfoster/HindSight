@@ -50,9 +50,9 @@
       .content .span3 {
 	border-bottom: 1px solid #eee;
 	border-left: 1px solid #eee;
-	float: right;
 	min-height: 500px;
 	padding-left: 10px;
+	margin-left: 0px;
       }
       .content .span11,
       .content .span4 {
@@ -99,7 +99,7 @@
 	    </p>
 	  <% else %>
 	    <%= link_to "Logout", signout_path, :style=> 'color:red;margin-top:5px;margin-right:-110px;', :class => 'btn pull-right' %>
-	    <p class="pull-right" style="margin-right:80px;">Logged in as <strong><%= link_to @user.name, user_path(@user) if @user.name%></strong></p>
+	    <p class="pull-right" style="margin-right:80px;">Logged in as <strong><%= link_to @user.name, user_path(@user), :remote => true if @user.name%></strong></p>
 	  <% end %>
         </div>
       </div>

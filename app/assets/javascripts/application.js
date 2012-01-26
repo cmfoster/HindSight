@@ -14,3 +14,5 @@
 //= require jquery.purr
 //= require best_in_place
 //= require twitter/bootstrap
+//= require jquery.autoSuggest.js
+//= require minifield.js

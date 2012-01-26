@@ -11,6 +11,7 @@ Hindsight::Application.routes.draw do
     get :userposts
     resources :posts do
       resources :tags
+      get :autosuggest_tag_subject, :on => :collection
     end
   end
     
@@ -22,6 +23,8 @@ Hindsight::Application.routes.draw do
   
   resources :users, :only => [:show]
   resources :posts, :only => [:show]
-  resources :tags, :only => [:show]
+  resources :tags, :only => [:show] 
+  
+  match '/tagposts' => 'tags#tagposts'
   
 end

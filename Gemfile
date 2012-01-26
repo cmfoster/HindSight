@@ -12,6 +12,8 @@ gem 'thumbs_up'
 gem "paperclip", "~> 2.0"
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
+gem 'autosuggest-rb'
+
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
