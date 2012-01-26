@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @comment = @post.comments.new
+    @comments = @post.comments
     if @post
       respond_with @post
     end
@@ -28,13 +30,17 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new
+    #accepting params[:post] has issues with the :set_tags params 
+    #so this had to be split up
+    @post = Post.new 
     @post.title = params[:post][:title]
     @post.story = params[:post][:story]
     @post.user_id = current_user.id
     @post.solution = params[:post][:solution]
     @post.author = current_user.name
-    if params[:post][:set_tags] 
+    #This statement accepts the new and current tags
+    #then splits them into sperate values and adds || creates them
+    if params[:post][:set_tags]  
       tags = params[:post][:set_tags].split(',')
       tags.each do |tag|
 	if Tag.find_by_id(tag)

@@ -248,6 +248,7 @@ input#titlearea[type=text] {
   height: 30px;
   width: 500px;
   font-size: 20px;
+  margin: 5px 0 5px 0;
 
 }
 #tag_subjects input[type=text] {

@@ -22,9 +22,12 @@ Hindsight::Application.routes.draw do
   end
   
   resources :users, :only => [:show]
-  resources :posts, :only => [:show]
-  resources :tags, :only => [:show] 
+  resources :posts, :only => [:show] do
+    resources :comments, :exclude => [:destroy]
+  end
+  resources :tags, :only => [:show, :index] 
   
   match '/tagposts' => 'tags#tagposts'
+  match '/browseupdate' => 'tags#browseupdate'
   
 end

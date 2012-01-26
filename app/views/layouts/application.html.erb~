@@ -54,7 +54,10 @@
 	padding-left: 10px;
 	margin-left: 0px;
       }
-      .content .span11,
+      .content .span11 {
+	padding-left: 19px;
+	margin-left: 0;
+      }
       .content .span4 {
         margin-left: 0;
         padding-left: 19px;
@@ -66,10 +69,13 @@
       }
       .topbar {
 	background-color: #4096EE;
+	background: url(assets/clouds.png) top left no-repeat;
+	border-bottom: 2px solid black;
       }
       .hero-unit {
 	min-height: 500px;
 	padding: 10px 0 0 0;
+	border-radius: 0px;
       }
 
     </style>

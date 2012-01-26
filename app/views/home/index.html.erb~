@@ -4,7 +4,8 @@
           <h1>Project HindSight <small>I knew you should have built this site sooner...</small></h1>
         </div>
         <div class="row">
-          <div class="span6" id="postcolumn">
+          <div class="span6" id="postcolumn" style="border-right:1px solid #eee">
+	    <%= link_to "Search", tags_path, :class => 'btn pull-right', :style => 'margin-right:10px;color: blue;', :remote => true %>
 	    <%= link_to "New Post", new_user_post_path(@user), :class => 'btn pull-right', :style => 'margin-right:10px;color: green;', :remote => true if current_user%>
             <h2>Post Listings</h2>
 	    <div class="row" id="postlist">
@@ -12,12 +13,12 @@
 	    </div>
           </div>
           <div class="span11" id="contentarea" style="padding-left: 0px;">
-<!--	    Render Content Area-->
+	    <center><div class="hero-unit" style="padding:0px;border:3px solid black;opacity:.8;background-color:#4096EE;border-radius:10px;min-height:250px;width:600px;">
+	    </div></center>
+<!--	   Render Area for all Content-->
 <!--	    <center><h1> Site Content Area</h1></center> -->
-	    <%= render :partial => 'browse'%>
-<!--	    <%= link_to "toggle", '#', :id => 'srch'%>-->
 	  </div>
-	  <div class="span3">Tiny link area</div>
+	  <div class="span3" id="linkarea">Tiny link area</div>
 	</div>
       </div>
 

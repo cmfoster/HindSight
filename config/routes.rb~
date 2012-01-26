@@ -21,10 +21,12 @@ Hindsight::Application.routes.draw do
     get :popularposts
   end
   
+  resources :comments, :except => [:index, :destroy]
   resources :users, :only => [:show]
   resources :posts, :only => [:show]
-  resources :tags, :only => [:show] do 
-    get :tagposts
-  end
+  resources :tags, :only => [:show, :index] 
+  
+  match '/tagposts' => 'tags#tagposts'
+  match '/browseupdate' => 'tags#browseupdate'
   
 end
