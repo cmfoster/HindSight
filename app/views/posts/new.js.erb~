@@ -1,0 +1,2 @@
+$( "#contentarea" ).hide().html( "<%= escape_javascript( render :partial => "new" ) %>" ).fadeIn("slow");
+$( "#linkarea" ).hide().html( "<%= escape_javascript( image_tag('createtag.png', :width => 200) ) %>" ).fadeIn("slow");

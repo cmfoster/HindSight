@@ -1,0 +1,5 @@
+<div class="row" id="browseupdate" style="margin:20px 0 0 0; text-align: center; padding: 0 10px 0 10px;">
+  <% @taglist.each do |tag|%>
+    <%= link_to tag.subject, tagposts_path(tag), :id => 'tooltipme', :rel => 'twipsy', :title => "#{Tag.postnumber(tag.subject)} Posts".html_safe, "data-placement" => "above", :remote => true, :style => "color: #FFF; font-weight:bold;margin-bottom: 25px;background-color: orange; border-radius: 3px 3px 3px 3px; text-align: center; padding: 5px 0px 5px;", :class => "span2"%>
+  <% end %>
+</div>

@@ -1,0 +1,2 @@
+$( "#postlist" ).html( '<%= escape_javascript( render :partial => "users/userposts" ) %>' );
+$('#paginator').html('<%= escape_javascript(paginate(@postlist, :remote => true).to_s) %>');

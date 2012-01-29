@@ -1,0 +1,14 @@
+<% @userposts.each do |post| %>
+  <div class="span6" style="border-bottom:1px solid #eee;">
+    <h6><%= link_to post.title.titleize, post_path(post), :remote => true  if post.title %></h6>
+    <% unless post.tags.empty? %>
+      <% post.tags.limit(4).each do |h|%>
+	<span class="label warning"><%= link_to h.subject, '#', :style => 'color: #FFF;' %></span>
+      <% end %>
+    <% end %>
+    <p class="pull-right" style="margin-right:5px;"><strong><%= link_to post.author, user_path(post.user.id), :remote => true, :style => 'font-size:10px;'%></strong></p>
+  </div>
+<% end %>
+<div id="paginator">
+  <%= paginate @userposts, :window => 2, :remote=> true%>
+</div>

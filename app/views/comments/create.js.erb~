@@ -1,0 +1,1 @@
+$('#commentarea').prepend($("<%= escape_javascript(render @comment) %>").fadeIn("slow"));

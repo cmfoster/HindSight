@@ -3,7 +3,7 @@
 
 div#postshow {
   width: 100%;
-  min-height: 400px;
+  height: auto;
 //   border: 1px solid black;
 }
 div#postshow h3 {
@@ -33,7 +33,7 @@ div#postshow p#subs a#sublinks {
   font-size: 17px;
   
 }
-div#postshow p#poststory {
+.poststory {
   text-align: left;
   padding-top: 25px;
   padding-bottom: 25px;

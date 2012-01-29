@@ -1,0 +1,32 @@
+    <div id="logincontainer" style="display:none">
+      <%= form_for "user", :url => user_session_path do |f| %>
+	<div class="txt-fld">
+	  <%= f.label :email %>
+	  <%= f.text_field :email %>
+	  <div style="clear:both"></div>
+	</div>
+	  <div class="txt-fld">
+	    <%= f.label :password %>
+	    <%= f.password_field :password %>
+	    <div style="clear:both"></div>
+	  </div>
+	  <div class="btn-fld">
+	    <%= f.label :remember_me %>
+	    <%= f.check_box :remember_me %>
+	    <%= f.submit "Login" %>
+	    <%= link_to "Recover my password", new_user_password_path, :id => "recover" %>  
+	    <div style="clear:both"></div>
+	  </div>
+	<% end %>
+      </div>
+<script type="text/javascript">
+    $("div#logincontainer").click(function () {
+      $(this).hide("slide", { direction: "down" }, 1000);
+});
+$(document).ready(function() {
+
+$("div#logincontainer").slideDown('medium', function() {// callback function executes when sliding is complete
+});
+
+});
+</script>

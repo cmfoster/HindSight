@@ -1,0 +1,19 @@
+<div id="container">
+  
+
+  <div id="postshow">
+  <h3 id="title" ><%= @post.title%>  </h3>
+  <% unless @post.hinds.empty?%>
+    <p id="subs"><% @post.hinds.each do |h|%> 
+    <%= link_to h.subject, hind_path(h.id) :id => "sublinks" %>
+    <% end %>
+    </p>
+  <% end %>
+
+  <p id="poststory"> <%= @post.story %></p>
+  </div>
+  <h3 id="authorlink">Posted By <%= link_to @post.author, user_path(@post.user), :id => "alink" if @post.author%></h3>
+
+
+</div>
+

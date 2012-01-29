@@ -1,0 +1,2 @@
+$( "#browseupdate" ).hide("slide", { direction: "left" }, 700).html( "<%= escape_javascript( render :partial => 'browseupdate' ) %>" ).show("slide", { direction: "right" }, 700);
+$('#paginator-tags').html('<%= escape_javascript(paginate(@taglist, :remote => true).to_s) %>');

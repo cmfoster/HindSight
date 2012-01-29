@@ -1,0 +1,1 @@
+$('#postlist').prepend($("<%= escape_javascript(render 'post') %>").fadeIn("slow"));

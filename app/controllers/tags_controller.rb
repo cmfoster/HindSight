@@ -1,0 +1,53 @@
+class TagsController < ApplicationController
+  before_filter :tag_list, :only => [:index, :browseupdate]
+  respond_to :js, :html
+#   before_filer :authenticate_user!, :only => [:create,:destroy]
+#   before_filer doesnt work, not related directly to user
+
+  def index
+    @tags = Tag.used.clone #This is a Hash with keys(tags) ordered from most used to least
+    respond_with @taglist
+  end
+  
+  def browseupdate
+    respond_with @taglist #grabs variable from before_filer
+  end
+  
+  def show
+    tag = Tag.find(params[:id])
+    search = tag.subject
+    listings = Tag.where(":subjects = ?", params[:subject] )
+  end
+  
+  def create
+    @tag = Tag.create(params[:hind])
+    @tag.subject.gsub!(/[ \t\r\n]/,"")
+    @tag.save!                        
+  end
+  
+  def destroy
+  end
+
+  def new
+  end
+  
+  def tagposts
+    if params[:subject]
+      tag = Tag.where("subject = ?", params[:subject])
+      @posts = Array.new
+      tag.each do |t|
+	if t.posts
+	  t.posts.each do |p|
+	    @posts << Post.find_by_id(p)
+	  end
+	end
+      end
+   respond_with @posts
+    end
+  end
+  
+  def tag_list
+    @taglist = Tag.order("LOWER(subject)").group("subject").page(params[:page]).per(20)
+  end
+
+end

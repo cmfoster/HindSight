@@ -1,0 +1,41 @@
+<div class="hero-unit" style="height:auto;">
+  <div id="postshow">
+    <h3><%= @post.title if :title %></h3>
+    <% unless @post.tags.empty? %>
+      <p id="subs">
+	<% @post.tags.limit(6).each do |h|%>
+	  <span class="label warning"><%= link_to h.subject, '#', :style => 'color: #FFF;' %></span>
+	<% end %>
+      </p>
+    <% end %>
+    <p class="poststory"><%= @post.story %></p>
+    <p class="poststory"><%= @post.solution%></p>
+    <h3 id="authorlink"><%= @post.author if :author%></h3>
+  </div>
+  <div class="span9" id="comment_div" style="margin: 36px auto; ">
+    <%= form_for([@post,@comment], :remote => true ) do |f|%>
+      <%= f.text_field :name, :id => 'name_area',:style => 'margin-right:240px;margin-bottom:10px;'%>
+      <%= f.text_area :comment, :id => 'comment_area', :style => 'width:450px;height:150px;'%><br />
+      <%= f.submit "SUBMIT", :id => "hide_form", :class => 'btn success'%>
+    <% end %>
+  </div>
+  <div class="span8" id="commentarea" style="padding-left:15px;">
+    <% @comments.order("created_at ASC").each do |comment| %>
+      <p id="comments" class="triangle-border"><%= comment.comment %></p>
+      <p style="text-align: left;margin-left: 50px;font-size:10px"><%= "<strong>#{comment.name}</strong> Posted #{time_ago_in_words(comment.created_at)} ago.".html_safe%></p>
+    <% end %>
+  </div>
+</div>
+
+<p><%= @post.votes.where(:vote => true).count unless @post.votes.empty?%></p>
+<p><%= @post.votes.where(:vote => false).count unless @post.votes.empty?%></p>
+
+<script>
+$(document).ready(function() {
+  $("#name_area").Watermark("Anonymous or name");
+  $("#comment_area").Watermark("Write your comment.");
+});
+$("#hide_form").click(function () {
+  $("#comment_div").hide(1000);
+});
+</script>

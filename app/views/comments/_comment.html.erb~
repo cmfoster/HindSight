@@ -1,0 +1,2 @@
+	    <p id="comments" class="triangle-border"><%= comment.comment %></p>
+	    <p style="text-align: left;margin-left: 50px;font-size:10px"><strong><%= comment.name%></strong></p>

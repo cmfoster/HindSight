@@ -1,0 +1,2 @@
+$( "#contentarea" ).hide().html( "<%= escape_javascript( render :partial => "show" ) %>" ).fadeIn("slow");
+

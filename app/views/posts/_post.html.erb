@@ -1,0 +1,12 @@
+<div class="span6" style="border-bottom:1px solid #eee;">
+    <h6><%= link_to @post.title.titleize, post_path(@post), :remote => true  if @post.title %></h6>
+    <% unless @post.tags.empty? %>
+      <% @post.tags.limit(4).each do |h|%>
+	<span class="label warning"><%= link_to h.subject, '#', :style => 'color: #FFF;' %></span>
+      <% end %>
+    <% end %>
+    <p class="pull-right" style="margin-right:5px;">
+      <strong><%= link_to @post.author, user_path(@post.user_id), :remote => true, :style => 'font-size:10px;' if @post.user %></strong>
+      <strong><%= link_to @post.author, user_path(@post.user_id), :remote => true, :style => 'font-size:10px;' unless @post.user%></strong>
+    </p>
+</div>

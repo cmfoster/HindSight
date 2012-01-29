@@ -1,0 +1,2 @@
+$( "#contentarea" ).hide().html( "<%= escape_javascript( render :partial => 'index' ) %>" ).fadeIn("slow");
+$('#paginator-tags').html('<%= escape_javascript(paginate(@taglist, :remote => true).to_s) %>');

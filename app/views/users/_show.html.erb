@@ -1,0 +1,27 @@
+<h2 style="text-align:center;"><%= @user.name%></h2>
+<div class="row">
+  <div class="span5" id="userinfo">
+      <p><h3 id="userh3">City:</h3> <%= @user.city.titleize if @user.city%></p><br />
+    <br /> <p><h3 id="userh3">State:</h3> <%= @user.state.titleize if @user.state%></p>
+  </div>
+  <div class="pull-right">
+ <%= image_tag("https://lh3.googleusercontent.com/-Y2tT2HPzBYM/AAAAAAAAAAI/AAAAAAAAAGc/7HRmHnsS4Ig/s200-c-k/photo.jpg", :id => "picture")%>
+  </div>
+</div>
+    <p id="subs" style="text-align:center;background-color:#4096EE;">
+      <% @subjects.each do |h|%>
+	<span class="label warning"><%= link_to h.subject, '#', :style => 'color: #FFF;' %></span>
+      <% end %>
+    </p>
+  <p id="aboutuser">
+      <%= best_in_place @user, :about, :type => :textarea if current_user %>
+      <%= @user.about unless current_user%>
+     <%= "<strong style='color:blue;'>Click inside this area to edit</strong>".html_safe if current_user%>
+  </p>
+<h3 id="authpostlink"><%= link_to "List of all posts", user_userposts_path(@user.id), :id => @user.id, :remote => true unless @user.posts.empty? %> </h3>
+<script type="text/javascript">
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});
+</script>

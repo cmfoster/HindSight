@@ -1,0 +1,44 @@
+<div class="hero-unit" style="padding-bottom:10px;">
+    <%= form_for([:user, @post], :remote => true) do |f|%>
+	<h3 id="userh3" style="margin: 0 10px 10px;display:block;">Give a title to the issue you're going to talk about.</h3>
+	<center><%= f.text_field :title, :id => 'titlearea',  :rel => "popover", :title => "Problem...", "data-content"=>"Create a short title immediatly showing the problem that you experienced. This is what people will see when looking for possible subjects related to what they are looking to do."%></center>
+	<h3 id="userh3" style="margin: 0 10px 10px;display:block;">Share your exact experience.</h3>
+	<center><%= f.text_area :story, :id => 'storyarea', :rel => "popover", :title => "Your Story", "data-content" => "Here you can describe your exeperince in this process. Some key points that will help whomever is learning from your experience are... <ul><li>What your thought process was at the time.</li><li>Why and how</li><li>Did anyone try to give you advice before hand?</li></ul> Some of these are only applicable to select situations.".html_safe%></center>
+	<h3 id="userh3" style="margin: 0 10px 10px;display:block;">What would you have done differently?</h3>
+	<center><%=f.text_area :solution, :id => 'solutionarea', :rel => 'popover', :title => 'Your Hindsight', "data-content" => "If you had of known what you known now, this is where you put exactly what you would have done to get where you wanted to be. You could put anything from becoming an astronaut to parasailing with your 80yr old mother-in-law in Hawaii. On a more serious note you should probably give some good insight on what you would have done differently compared with the situation you wrote about above." %></center>
+	<h3 id="userh3" style="margin: 0 10px 10px;display:block;">Choose or create a category to list this post under.</h3>
+	<center><%= f.autosuggest_field :tags, autosuggest_tag_subject_user_posts_path, :autosuggest_options => { "newValuesInputName" => "post[new_tags]", "selectionLimit" => 5, "retrieveLimit" => 5 }, :rel => "popover", :title => "Taging", "data-content" => "It is reccomended that you use tags that are already available however if you cannot find a relavent tag you may create one by simply typing the tag you wich to create and adding a <strong>,</strong> &#40;comma&#41; after the word as shown to the right side of this page. <strong>Tags are limited to 12 Characters</strong>.".html_safe %></center>
+	<%= f.submit "Submit", :class => 'btn pull-right', :id => "postsubmit"%>
+      <% end %>
+      <center><%= image_tag('createtag.png')%></center>
+</div>
+<script >
+   $(document).ready(function() {
+
+   $("#titlearea").Watermark("The Problem...");
+   $("#storyarea").Watermark("Tell your story how it happened.");
+   $("#solutionarea").Watermark("Solution, what you would do different given the chance.");
+   $("#tag_subjects").Watermark("Relevant Subjects");
+});
+
+$("#postsubmit").click(function() {
+  $(".hero-unit").fadeOut("slow");
+});
+$("#titlearea").popover({offset: 5, placement: 'right'});
+$("#storyarea").popover({html: true, offset: 50, placement: 'right'});
+$("#solutionarea").popover({html: true, offset: 50, placement: 'right'});
+$(".autosuggest_post_tags").popover({html: true, offset: 50, placement: 'right'});
+$('#titlearea').textLimit(50);
+$('.as-input').textLimit('12');
+</script>
+
+<style type="text/css">
+.popover .content {
+margin: 0;
+}
+.popover .title {
+  background-color: #4096EE;
+  color: #fff;
+}
+
+</style>

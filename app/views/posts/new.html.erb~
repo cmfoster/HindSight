@@ -1,0 +1,22 @@
+<div id="container">
+  <div id="newpost" >
+    <%= form_for([:user, @post]) do |f|%>
+      <div id="newposttitle">
+      <%= f.text_field :title%>
+      </div>
+      <div id="newpoststory">
+	<%= f.text_area :story, :id => 'storyarea' %>
+	<%= f.submit "Post" %>
+      </div>
+    <% end %>
+    <div id="selecthinds">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+   $(document).ready(function() {
+
+   $("#post_title").Watermark("Story Title");
+   $("#hind_subject").Watermark("Relevant Subjects");
+});
+</script>

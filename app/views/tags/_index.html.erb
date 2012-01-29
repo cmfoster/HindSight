@@ -1,0 +1,21 @@
+<div class="hero-unit">
+  <center><h1>Browse by tags</h1></center>
+  <h1 style="margin-left: 30px;"><small>Most used tags</small></h1>
+  <div class="row" style="border-bottom:5px solid #eee; margin:20px 0 0 0; text-align: center; padding: 0 0px 0 10px;">
+    <% @tags.keys.first(10).each do |key| %>
+      <%= link_to key, tagposts_path(:subject => key), :id => 'tooltipme', :rel => 'twipsy', :title => "#{Tag.postnumber(key)}".html_safe, "data-placement" => 'above', :remote => true, :style => 'color: #FFF; font-weight:bold;margin-bottom: 25px;background-color: orange; border-radius: 3px 3px 3px 3px; text-align: center; padding: 5px 0px 5px;', :class => "span2"%>
+    <% end %>
+  </div>
+  <h1 style="margin-left: 30px;"><small>Ordered by name</small></h1>
+  <div class="row" id="browseupdate" style="margin:20px 0 0 0; text-align: center; padding: 0 10px 0 10px;">
+    <% @taglist.each do |tag|%>
+      <%= link_to tag.subject, tagposts_path(tag), :id => 'tooltipme', :rel => 'twipsy', :title => "#{Tag.postnumber(tag.subject)} Posts".html_safe, "data-placement" => "above", :remote => true, :style => "color: #FFF; font-weight:bold;margin-bottom: 25px;background-color: orange; border-radius: 3px 3px 3px 3px; text-align: center; padding: 5px 0px 5px;", :class => "span2"%>
+    <% end %>
+  </div>
+  <div id="paginator-tags" class="center" style="margin-left:40%;">
+    <%= paginate @taglist, :window => 2, :params => {:action => 'browseupdate'}, :remote => true%>
+  </div>
+</div>
+<script>
+$('a[rel=twipsy]').twipsy({html: true});
+</script>

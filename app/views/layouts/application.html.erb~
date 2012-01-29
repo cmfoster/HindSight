@@ -33,6 +33,28 @@
            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
                 box-shadow: 0 1px 2px rgba(0,0,0,.15);
       }
+.shadow {
+   color: white;
+   font: bold 8px Helvetica, Arial, Sans-Serif;
+   text-shadow: 1px 1px #fe4902,
+                2px 2px #fe4902,
+                3px 3px #fe4902;
+   -webkit-transition: all 0.12s ease-out;
+   -moz-transition:    all 0.12s ease-out;
+   -ms-transition:     all 0.12s ease-out;
+   -o-transition:      all 0.12s ease-out;
+}
+.shadow:hover {
+   position: relative;
+   top: -3px;
+   left: -3px;
+   text-shadow: 1px 1px #fe4902,
+                2px 2px #fe4902,
+                3px 3px #fe4902,
+                4px 4px #fe4902,
+                5px 5px #fe4902,
+                6px 6px #fe4902;
+}
 
       /* Page header tweaks */
       .page-header {
@@ -69,7 +91,6 @@
       }
       .topbar {
 	background-color: #4096EE;
-	background: url(assets/clouds.png) top left no-repeat;
 	border-bottom: 2px solid black;
       }
       .hero-unit {
@@ -77,6 +98,75 @@
 	padding: 10px 0 0 0;
 	border-radius: 0px;
       }
+      #homecontent {
+	background-color: #79bbff;
+	height: 300px;
+	width: 600px;
+	margin: 40px auto;
+        -webkit-border-radius: 10px 10px 10px 10px;
+           -moz-border-radius: 10px 10px 10px 10px;
+                border-radius: 10px 10px 10px 10px;
+        -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.45);
+           -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.45);
+                box-shadow: 1px 1px 2px rgba(0,0,0,.45);
+      }
+      .triangle-border {
+	position:relative;
+	padding:10px;
+	margin:3em 0 1em;
+	border:5px solid #4096EE;
+	color:#333;
+	background:#fff;
+	/* css3 */
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+      .triangle-border:after {
+	content:"";
+	position:absolute;
+	bottom:-13px; /* value = - border-top-width - border-bottom-width */
+	left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+	border-width:13px 13px 0;
+	border-style:solid;
+	border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+      .triangle-border:before {
+	content:"";
+	position:absolute;
+	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	left:40px; /* controls horizontal position */
+	border-width:20px 20px 0;
+	border-style:solid;
+	border-color:#4096EE transparent;
+	/* reduce the damage in FF3.0 */
+	display:block; 
+	width:0;
+}
+    p#comments {
+	font-size: 12px;
+	word-wrap:break-word;
+	
+}
+    #new_comment {
+	background-color: #4096EE;
+	border-radius: 10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	margin-top: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+
+}
+    #new_comment input[type=submit] {
+	  margin-top: 10px;
+	  margin-left: 380px;
+	
+}
 
     </style>
 
