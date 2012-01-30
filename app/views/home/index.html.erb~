@@ -1,8 +1,11 @@
 <style>
-#contentarea {min-height:900px;text-align:center;padding-left: 0px;}
-#contentrow {min-height:700px;border:1px solid black;}
-#content-left-div {min-height:600px;margin-left:0px;border:1px solid black;}
-#content-right-div {min-height:350px;float:right;border:1px solid black;}
+#contentarea {min-height:900px;text-align:center;padding-left: 0px;} /* These wrap the two content divs*/
+#contentrow {min-height:700px;border-bottom:1px solid black;}
+
+#content-left-div {border-radius: 5px 5px 5px 5px;min-height:600px;background-color:#eee;} /*Two content divs on main page*/
+#content-right-div {border-radius: 5px 5px 5px 5px;min-height:350px;float:right;background-color:#eee;}
+
+#postcolumn {float:right;border-right:1px solid #eee;}  /*Post column aligned right*/
 </style>
 
 
@@ -23,11 +26,11 @@
 	    </div>
 <!--	    <center><h1> Site Content Area</h1></center> -->
 	  </div>
-          <div class="span6" id="postcolumn" style=" float:right;border-right:1px solid #eee">
+          <div class="span6" id="postcolumn">
 <!--	    <%= link_to "Search", tags_path, :class => 'btn pull-right', :style => 'margin-right:10px;color: blue;', :remote => true %>-->
 	    <%= link_to "New Post", new_user_post_path(@user), :class => 'btn success pull-right', :style => 'margin-right:10px;color:#FFF;', :remote => true if current_user%>
             <h2>Post Listings</h2>
-	    <div class="row" id="postlist">
+	    <div id="postlist">
 	      <%= render :partial => 'postlist'%>
 	    </div>
           </div>

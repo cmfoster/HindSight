@@ -1,3 +1,24 @@
+<style>
+
+#commentbutton {
+  background-color: #57A957;
+  padding: 10px 10px 10px 10px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  color: #FFF;
+}
+
+#commentbutton:hover {
+  background-color: #184D0A;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+</style>
+
+
 <div class="hero-unit" style="height:auto;">
   <div id="postshow">
     <h3><%= @post.title if :title %></h3>
@@ -9,15 +30,19 @@
       </p>
     <% end %>
     <p class="poststory"><%= @post.story %></p>
-    <p class="poststory"><%= @post.solution%></p>
+    <p class="poststory"><%= @post.solution %></p>
     <h3 id="authorlink"><%= @post.author if :author%></h3>
   </div>
-  <div class="span9" id="comment_div" style="margin: 36px auto; ">
+  <div class="span5" style="margin:20px 0;text-align:center;height:30px;">
+    <%= link_to "Create Comment", '#', :id => 'commentbutton' %>
+  </div>
+  <div class="span9" id="comment_div" style="display:none;margin: 36px auto; ">
     <%= form_for([@post,@comment], :remote => true ) do |f|%>
       <%= f.text_field :name, :id => 'name_area',:style => 'margin-right:240px;margin-bottom:10px;'%>
       <%= f.text_area :comment, :id => 'comment_area', :style => 'width:450px;height:150px;'%><br />
       <%= f.submit "SUBMIT", :id => "hide_form", :class => 'btn success'%>
     <% end %>
+    <%= link_to "Cancel", '#', :class => 'btn'%>
   </div>
   <div class="span8" id="commentarea" style="padding-left:15px;">
     <% @comments.order("created_at ASC").each do |comment| %>
@@ -37,5 +62,11 @@ $(document).ready(function() {
 });
 $("#hide_form").click(function () {
   $("#comment_div").hide(1000);
+});
+
+$('#commentbutton').click(function() {
+  $('#comment_div').show('slow', function() {
+  $('#commentbutton').hide();
+  });
 });
 </script>

@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <div class="span6" style="border-bottom:1px solid #eee;">
+  <div class="span6" style="border-bottom:1px solid #89B43C;">
     <h6><%= link_to post.title.titleize.truncate(50), post_path(post), :remote => true  if post.title %></h6>
     <p><%= post.story.truncate(60)%></p>
     <% unless post.tags.empty? %>

@@ -99,7 +99,7 @@
 	border-radius: 0px;
       }
       #homecontent {
-	background-color: #79bbff;
+	background-color: #FFF;
 	height: 300px;
 	width: 600px;
 	margin: 40px auto;
