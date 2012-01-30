@@ -69,9 +69,9 @@ $('#commentbutton').click(function() {
   $('#commentbutton').hide();
   });
 });
-$('#commentbutton').click(function() {
-  $('#comment_div').show('slow', function() {
-  $('#commentbutton').hide();
+$('#cancelbtn').click(function() {
+  $('#comment_div').hide('slow', function() {
+  $('#commentbutton').fadeIn("fast");
   });
 });
 

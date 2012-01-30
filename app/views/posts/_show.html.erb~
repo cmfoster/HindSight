@@ -42,7 +42,7 @@
       <%= f.text_area :comment, :id => 'comment_area', :style => 'width:450px;height:150px;'%><br />
       <%= f.submit "SUBMIT", :id => "hide_form", :class => 'btn success'%>
     <% end %>
-    <%= link_to "Cancel", '#', :class => 'btn'%>
+    <%= link_to "Cancel", '#', :id => 'cancelbtn', :class => 'btn'%>
   </div>
   <div class="span8" id="commentarea" style="padding-left:15px;">
     <% @comments.order("created_at ASC").each do |comment| %>
@@ -69,4 +69,10 @@ $('#commentbutton').click(function() {
   $('#commentbutton').hide();
   });
 });
+$('#commentbutton').click(function() {
+  $('#comment_div').show('slow', function() {
+  $('#commentbutton').hide();
+  });
+});
+
 </script>
