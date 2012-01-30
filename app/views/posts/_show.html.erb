@@ -25,24 +25,29 @@
     <% unless @post.tags.empty? %>
       <p id="subs">
 	<% @post.tags.limit(6).each do |h|%>
-	  <span class="label warning"><%= link_to h.subject, '#', :style => 'color: #FFF;' %></span>
+	  <span class="label warning" style="background-color:#EEE;margin-right:5px;"><%= link_to h.subject, '#', :style => 'color:black;' %></span>
 	<% end %>
       </p>
     <% end %>
     <p class="poststory"><%= @post.story %></p>
+    <br />
     <p class="poststory"><%= @post.solution %></p>
     <h3 id="authorlink"><%= @post.author if :author%></h3>
-  </div>
-  <div class="span5" style="margin:20px 0;text-align:center;height:30px;">
-    <%= link_to "Create Comment", '#', :id => 'commentbutton' %>
-  </div>
-  <div class="span9" id="comment_div" style="display:none;margin: 36px auto; ">
+  </div>  
+  <center>
+    <div class="span5" style="margin:20px 0;text-align:center;height:30px;">
+      <%= link_to "Create Comment", '#', :id => 'commentbutton' %>
+    </div>
+  </center>
+  <div class="span9" id="comment_div" style="display:none;margin-top:-35px; margin-left: auto; margin-right: auto; ">
     <%= form_for([@post,@comment], :remote => true ) do |f|%>
       <%= f.text_field :name, :id => 'name_area',:style => 'margin-right:240px;margin-bottom:10px;'%>
       <%= f.text_area :comment, :id => 'comment_area', :style => 'width:450px;height:150px;'%><br />
-      <%= f.submit "SUBMIT", :id => "hide_form", :class => 'btn success'%>
+      <div class="row">
+	<%= f.submit "SUBMIT", :id => "hide_form", :class => 'btn success'%>
+	<%= link_to "Cancel", '#', :id => 'cancelbtn', :class => 'btn'%>
+      </div>
     <% end %>
-    <%= link_to "Cancel", '#', :id => 'cancelbtn', :class => 'btn'%>
   </div>
   <div class="span8" id="commentarea" style="padding-left:15px;">
     <% @comments.order("created_at ASC").each do |comment| %>

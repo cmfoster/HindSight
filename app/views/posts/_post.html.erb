@@ -2,7 +2,7 @@
     <h6><%= link_to @post.title.titleize, post_path(@post), :remote => true  if @post.title %></h6>
     <% unless @post.tags.empty? %>
       <% @post.tags.limit(4).each do |h|%>
-	<span class="label warning"><%= link_to h.subject, '#', :style => 'color: #FFF;' %></span>
+	<span class="label warning" style="background-color:#EEE;margin-right:5px;"><%= link_to h.subject, '#', :style => 'color: #b4b4b4;' %></span>
       <% end %>
     <% end %>
     <p class="pull-right" style="margin-right:5px;">

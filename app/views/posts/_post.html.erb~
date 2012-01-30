@@ -5,5 +5,8 @@
 	<span class="label warning"><%= link_to h.subject, '#', :style => 'color: #FFF;' %></span>
       <% end %>
     <% end %>
-    <p class="pull-right" style="margin-right:5px;"><strong><%= link_to @post.author, user_path(@post.user_id), :remote => true, :style => 'font-size:10px;' if @post.author%></strong></p>
+    <p class="pull-right" style="margin-right:5px;">
+      <strong><%= link_to @post.author, user_path(@post.user_id), :remote => true, :style => 'font-size:10px;' if @post.user %></strong>
+      <strong><%= link_to @post.author, user_path(@post.user_id), :remote => true, :style => 'font-size:10px;' unless @post.user%></strong>
+    </p>
 </div>
